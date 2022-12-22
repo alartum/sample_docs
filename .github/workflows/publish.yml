@@ -1,0 +1,30 @@
+name: build documentation and publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - run: pip install -r requirements.txt
+      - name: build documentation
+        run: make -C docs singlehtml
+      - run: touch _build/singlehtml/.nojekyll
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: '_build/singlehtml'
+          destination-github-username: 'alartum'
+          destination-repository-name: 'alartum.github.io'
+          user-email: alartum@gmail.com
+          target-branch: main
+          target-directory: docs
