@@ -22,14 +22,3 @@ class SampleClass:
             Something to say hello to, by default "World"
         """
         print(f"Hello, {who}!")
-
-    def print_goodbye(self, who: str = "World"):
-        """Prints `Goodbye, <someone>!` where <someone> is
-        specified in the parameters.
-
-        Parameters
-        ----------
-        who : str, optional
-            Something to say goodbye to, by default "World"
-        """
-        print(f"Goodbye, {who}!")
