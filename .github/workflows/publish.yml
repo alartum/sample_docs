@@ -1,4 +1,4 @@
-name: build documentation and publish
+name: Build documentation and publish
 
 on:
   push:
@@ -17,12 +17,12 @@ jobs:
       - run: pip install -r requirements.txt
       - name: build documentation
         run: make -C docs singlehtml
-      - run: touch _build/singlehtml/.nojekyll
+      - run: touch docs/_build/singlehtml/.nojekyll
       - uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
-          source-directory: '_build/singlehtml'
+          source-directory: 'docs/_build/singlehtml'
           destination-github-username: 'alartum'
           destination-repository-name: 'alartum.github.io'
           user-email: alartum@gmail.com
