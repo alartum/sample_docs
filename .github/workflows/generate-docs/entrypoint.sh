@@ -11,7 +11,7 @@ SYMLINK_NAME="${4}"
 
 if [ -z "$SYMLINK_NAME" ]
 then
-	SYMLINK_NAME="$(basename $(pwd))"
+	SYMLINK_NAME="$(basename $GITHUB_REPOSITORY)"
 fi
 
 echo "[+] Reading environment from $ENVIRONMENT_YAML"
