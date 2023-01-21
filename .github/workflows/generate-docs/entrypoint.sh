@@ -29,6 +29,7 @@ if [ -e $SYMLINK_PATH ] ; then
 	echo "Symlink ($SYMLINK_PATH) already exists, removing."
     rm -rf "$SYMLINK_PATH"
 fi
+echo "Creating symlink ($SYMLINK_PATH)."
 ln -s ../.. $SYMLINK_PATH
 sphinx-apidoc -f -o source/ ..
 make $DOCUMENTATION_FORMAT
