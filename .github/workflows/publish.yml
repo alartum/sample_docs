@@ -8,11 +8,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/generate-docs
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Generate the documentation
+        uses: ./.github/workflows/generate-docs
         with:
           documentation-format: 'html'
-      - uses: ./.github/workflows/publish-docs
+      - name: Publish the documentation
+        uses: ./.github/workflows/publish-docs
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
