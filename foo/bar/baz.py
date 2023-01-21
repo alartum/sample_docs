@@ -1,6 +1,6 @@
-class SampleClass:
+class Baz:
     def __init__(self, param1: int, param2: str) -> None:
-        """Creates a new SampleClass object.
+        """Creates a new Baz object.
 
         Parameters
         ----------
