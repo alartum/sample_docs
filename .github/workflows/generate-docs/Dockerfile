@@ -1,4 +1,4 @@
-FROM --platform=arm64 condaforge/mambaforge
+FROM condaforge/mambaforge
 
 COPY entrypoint.sh /entrypoint.sh
 
