@@ -1,0 +1,29 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - ipywidgets
+  - pip
+  
+  # Documentation
+  - sphinx
+  - nbsphinx
+  - make
+
+  # Development
+  - isort
+  - black
+  - flake8
+
+  # Data
+  - numpy
+  - pandas
+  - plotly
+  - tqdm
+  - xlrd
+  - openpyxl
+
+  - pip:
+    - jupyterlab-code-formatter

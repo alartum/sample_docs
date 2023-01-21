@@ -1,0 +1,37 @@
+name: Generate Sphinx documentation
+description: >-
+  Used to automatically generate the documentation via Sphinx package
+inputs:
+  docs-directory:
+    description: Directory with Sphinx configuration files
+    required: false
+    default: 'docs'
+  environment-yaml:
+    description: >-
+      Dependencies to install in the docker image, Sphinx should be
+      one of them
+    required: false
+    default: 'environment.yaml'
+  documentation-format:
+    description: >-
+      Documentation format to be passed to the Sphinx generator
+    required: false
+    default: 'html'
+  symlink-name:
+    description: >-
+      Name of the symlink that is created inside the docs folder. It is removed
+      after the documentation is generated. Defaults to the repository name if
+      empty.
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - '${{ inputs.docs-directory }}'
+    - '${{ inputs.environment-yaml }}'
+    - '${{ inputs.documentation-format }}'
+    - '${{ inputs.symlink-name }}'
+branding:
+  icon: file-text
+  color: green

@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  jupyterlab:
+    image: satoshi-energy-etl:latest
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/home:rw

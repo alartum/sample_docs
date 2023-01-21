@@ -1,6 +1,6 @@
-class SampleClass:
+class Baz:
     def __init__(self, param1: int, param2: str) -> None:
-        """Creates a new SampleClass object.
+        """Creates a new Baz object.
 
         Parameters
         ----------
@@ -22,14 +22,3 @@ class SampleClass:
             Something to say hello to, by default "World"
         """
         print(f"Hello, {who}!")
-
-    def print_goodbye(self, who: str = "World"):
-        """Prints `Goodbye, <someone>!` where <someone> is
-        specified in the parameters.
-
-        Parameters
-        ----------
-        who : str, optional
-            Something to say goodbye to, by default "World"
-        """
-        print(f"Goodbye, {who}!")
