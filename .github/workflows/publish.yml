@@ -11,11 +11,13 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Generate the documentation
-        uses: ./.github/workflows/generate-docs
+        uses: ./.github/actions/generate-docs
         with:
-          documentation-format: 'html'
+          symlink-name: sample_docs
+          docs-directory: docs
+          documentation-format: html
       - name: Publish the documentation
-        uses: ./.github/workflows/publish-docs
+        uses: ./.github/actions/publish-docs
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:

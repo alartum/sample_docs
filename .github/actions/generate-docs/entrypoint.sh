@@ -18,7 +18,7 @@ echo "[+] Reading environment from $ENVIRONMENT_YAML"
 cat $ENVIRONMENT_YAML
 
 echo "[+] Installing dependencies"
-mamba env update --name base --file $ENVIRONMENT_YAML
+mamba env update --file $ENVIRONMENT_YAML
 
 echo "[+] Generate documentation"
 cd $DOCS_DIRECTORY
